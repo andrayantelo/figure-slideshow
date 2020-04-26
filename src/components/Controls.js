@@ -6,12 +6,13 @@ function Controls(props) {
             <div className="iconList">
                 <i
                     className="play icon"
-                    onClick={props.start}
                 >
 
                 </i>
                 <i className="pause icon"></i>
-                <i className="stop icon"></i>
+                <i
+                    className="stop icon"
+                ></i>
             </div>
         </div>
     )

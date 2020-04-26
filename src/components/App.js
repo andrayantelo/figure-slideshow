@@ -8,8 +8,6 @@ function App() {
   const [currentImage, setImage] = useState([])
   const [time, setTime] = useState(5000)
   const [value, setValue] = useState("1")
-  const [running, setRunning] = useState(false)
-  const [interval, setInterval] = useState(null)
 
   async function getPhoto() {
     const response = await unsplash.get('/photos/random')
@@ -18,33 +16,15 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('handling submit');
-    setTime(value)
-  }
-
-  const setSlideshowTimer = (event) => {
-    console.log('changing value')
-    event.preventDefault();
-    // convert seconds to milliseconds
-    const ms = Number(event.target.value)*1000
+    const ms = Number(value)*1000
     console.log(ms)
     setTime(ms)
   }
 
-  const startSlideshow = () => {
-    if (!running) {
-      setRunning(true)
-      console.log("starting slideshow with time: ", time);
-      setInterval(() => {
-        console.log('getting photo')
-        getPhoto()
-      }, time)
-    }
-  }
-
-  const stopSlideshow = () => {
-
-    setRunning(false)
+  const setSlideshowTimer = (event) => {
+    event.preventDefault();
+    // convert seconds to milliseconds
+    setValue(event.target.value)
   }
 
   return (
@@ -59,7 +39,6 @@ function App() {
           handleSubmit={handleSubmit}
       />
       <Controls
-          start={startSlideshow}
       />
     </div>
   );

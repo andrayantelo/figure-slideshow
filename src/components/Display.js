@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Display(props) {
-    console.log(props.currentImage)
     if (!props.currentImage.length) {
         return null
     }
