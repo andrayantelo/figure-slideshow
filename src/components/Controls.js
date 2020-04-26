@@ -6,7 +6,7 @@ function Controls(props) {
             <div className="iconList">
                 <i
                     className="play icon"
-                    onClick={props.getPhoto}
+                    onClick={props.start}
                 >
 
                 </i>
