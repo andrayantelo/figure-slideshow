@@ -1,0 +1,14 @@
+.iconList {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+i {
+    padding: 0 25px;
+}
+
+.controlsContainer {
+    margin: 20px;
+}

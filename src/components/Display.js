@@ -1,15 +1,19 @@
 import React from 'react';
-import Controls from './Conrols';
 
 function Display(props) {
-
+    console.log(props.currentImage)
+    if (!props.currentImage.length) {
+        return null
+    }
+    const url = props.currentImage[0].urls.small
     return (
-        <div>
-            <img alt="" />
-            <div></div>
-            <Controls />
+        <div className="ui segment">
+            <img src={url} alt="" />
+            <div>
+                
+            </div>
         </div>
-    )
+    )  
 }
 
 export default Display;

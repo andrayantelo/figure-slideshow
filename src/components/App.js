@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Display from './Display';
+import Controls from './Controls';
 import unsplash from '../api/unsplash.js';
 
 function App() {
@@ -8,19 +9,26 @@ function App() {
 
   async function getPhoto() {
     const response = await unsplash.get('/photos/random')
-    setImage(response.data)
+    setImage([response.data])
   }
 
-  /*useEffect(() => {
-    setTimeout(() => {
-        console.log("getting photo")
-        getPhoto()
-    }, time)
-  }, [getPhoto], time)*/
+  const setSlideshowTimer = (ms) => {
+    setTime(ms)
+  }
+
+  const startSlideShow = () => {
+    
+  }
 
   return (
-    <div className="App">
-      <Display currentImage={currentImage} />
+    <div className="ui container">
+      <Display
+          currentImage={currentImage}
+          getPhoto={getPhoto}
+      />
+      <Controls
+          getPhoto={getPhoto}
+      />
     </div>
   );
 }
