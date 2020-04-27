@@ -6,9 +6,12 @@ function Display(props) {
     }
     const url = props.currentImage[0].urls.small
     return (
-        <div className="ui segment">
-            <img src={url} alt="" />
-            <div>
+        <div className="imageContainer">
+            <img
+                src={url}
+                alt=""
+            />
+        <div>
                 
             </div>
         </div>
