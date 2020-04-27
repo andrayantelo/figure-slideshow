@@ -6,7 +6,11 @@ function Form(props) {
             <form onSubmit={props.handleSubmit}>
                 <label>
                 Pick Pose Time:
-                <select value={props.value} onChange={props.handleChange}>
+                <select
+                    value={props.value}
+                    onChange={props.handleChange}
+                    disabled={props.running}
+                >
                     <option value="1">1 seconds</option>
                     <option value="2">2 seconds</option>
                     <option value="120">2 minutes</option>

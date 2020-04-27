@@ -10,7 +10,6 @@ function Controls(props) {
                 >
 
                 </i>
-                <i className="pause icon"></i>
                 <i
                     className="stop icon"
                     onClick={props.stopTimer}
