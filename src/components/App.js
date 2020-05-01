@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import Display from './Display';
-import Controls from './Controls';
-import Form from './Form';
-import unsplash from '../api/unsplash.js';
+import React, { useState, useEffect } from 'react'
+import Display from './Display'
+import Controls from './Controls'
+import Form from './Form'
+import placeholderImg from '../images/venicebeach.jpg'
+
+//import unsplash from '../api/unsplash.js';
 
 function App() {
   const [currentImage, setImage] = useState([])
@@ -18,6 +20,11 @@ function App() {
     setImage([response.data])*/
     setImage([{urls: {small: "https://unsplash.com/photos/EjAbk2U3REE"}}])
   }
+  
+  // when component mounts, set an image as a placeholder.
+  useEffect(() => {
+    setImage([{urls: {small: placeholderImg}}])
+  }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -61,16 +68,18 @@ function App() {
           currentImage={currentImage}
           getPhoto={getPhoto}
       />
-      <Form
-          handleChange={setSlideshowTimer}
-          value={value}
-          handleSubmit={handleSubmit}
-          running={running}
-      />
-      <Controls
-          startTimer={startTimer}
-          stopTimer={stopTimer}
-      />
+      <div className="optionsContainer">
+        <Controls
+            startTimer={startTimer}
+            stopTimer={stopTimer}
+        />
+        <Form
+            handleChange={setSlideshowTimer}
+            value={value}
+            handleSubmit={handleSubmit}
+            running={running}
+        />
+      </div>
     </div>
   );
 }
