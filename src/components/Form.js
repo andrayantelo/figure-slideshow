@@ -2,8 +2,8 @@ import React from 'react';
 
 function Form(props) {
     return (
-        <div>
-            <form onSubmit={props.handleSubmit}>
+        <div className="formContainer" >
+            <form id="slideshowForm" onSubmit={props.handleSubmit}>
                 <label>
                 Pick Pose Time:
                 <select
